@@ -10,11 +10,28 @@ namespace DiamondKata.ClassLibrary
     {
         public string Print(char ch)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(Convert.ToString(ch));
-            stringBuilder.Append("\n");
+            char targetChar = ch;
+            StringBuilder diamondStringBuilder = new StringBuilder();
+            int lineCount = 2 * (targetChar - 'A') + 1;
+            int middleIndex = lineCount / 2;
+            int charPosition1 = 0;
+            int charPosition2 = 0;
+            int asciiA = Convert.ToInt32('A');
+            char currentChar = ' ';
 
-            return stringBuilder.ToString();
+            for (int index = 0; index < lineCount; index++)
+            {
+                charPosition1 = Math.Abs(middleIndex - index);
+                charPosition2 = (lineCount - 1) - charPosition1;
+                currentChar = Convert.ToChar(asciiA + middleIndex - charPosition1);
+                StringBuilder diamondLineStringBuilder = new StringBuilder();
+                diamondLineStringBuilder.Append(' ', lineCount);
+                diamondLineStringBuilder.Replace(' ', currentChar, charPosition1, 1);
+                diamondLineStringBuilder.Replace(' ', currentChar, charPosition2, 1);
+                diamondLineStringBuilder.Append("\n");
+                diamondStringBuilder.Append(diamondLineStringBuilder.ToString());
+            }
+            return diamondStringBuilder.ToString();
         }
     }
 }
