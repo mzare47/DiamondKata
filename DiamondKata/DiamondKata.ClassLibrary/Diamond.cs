@@ -8,5 +8,9 @@ namespace DiamondKata.ClassLibrary
 {
     public class Diamond
     {
+        public string Print(char ch)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,18 +1,27 @@
+using DiamondKata.ClassLibrary;
 using NUnit.Framework;
+using System.Text;
 
 namespace DiamondKata.Tests
 {
     public class DiamondKataTests
     {
+        private Diamond diamond;
+        private StringBuilder stringBuilder;
+
         [SetUp]
         public void Setup()
         {
+            diamond = new Diamond();
+            stringBuilder = new StringBuilder();
         }
 
         [Test]
-        public void Test1()
+        public void GivenCharacterA_ShouldCreateDiamondWithCharacterA()
         {
-            Assert.Pass();
+            stringBuilder.Append("A\n");
+
+            Assert.AreEqual(diamond.Print('A'), stringBuilder.ToString());
         }
     }
 }
