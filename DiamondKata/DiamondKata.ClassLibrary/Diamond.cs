@@ -11,6 +11,10 @@ namespace DiamondKata.ClassLibrary
         public string Print(char ch)
         {
             char targetChar = ch;
+            if (targetChar < 'A' || targetChar > 'Z')
+            {
+                return null;
+            }
             StringBuilder diamondStringBuilder = new StringBuilder();
             int lineCount = 2 * (targetChar - 'A') + 1;
             int middleIndex = lineCount / 2;
