@@ -45,5 +45,23 @@ namespace DiamondKata.Tests
 
             Assert.AreEqual(diamond.Print('C'), stringBuilder.ToString());
         }
+
+        [Test]
+        public void GivenCharacterF_ShouldCreateDiamondWithCharactersAtoF()
+        {
+            stringBuilder.Append("     A     \n");
+            stringBuilder.Append("    B B    \n");
+            stringBuilder.Append("   C   C   \n");
+            stringBuilder.Append("  D     D  \n");
+            stringBuilder.Append(" E       E \n");
+            stringBuilder.Append("F         F\n");
+            stringBuilder.Append(" E       E \n");
+            stringBuilder.Append("  D     D  \n");
+            stringBuilder.Append("   C   C   \n");
+            stringBuilder.Append("    B B    \n");
+            stringBuilder.Append("     A     \n");
+
+            Assert.AreEqual(diamond.Print('F'), stringBuilder.ToString());
+        }
     }
 }
