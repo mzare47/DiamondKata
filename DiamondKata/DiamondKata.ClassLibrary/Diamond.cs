@@ -8,34 +8,37 @@ namespace DiamondKata.ClassLibrary
 {
     public class Diamond
     {
+        private const char CHAR_A = 'A';
+        private const char CHAR_Z = 'Z';
+        private const int CHAR_A_ASCII_CODE = 65;
         public string Print(char ch)
         {
             char targetChar = ch;
-            if (targetChar < 'A' || targetChar > 'Z')
+            if (targetChar < CHAR_A || targetChar > CHAR_Z)
             {
                 return null;
             }
-            StringBuilder diamondStringBuilder = new StringBuilder();
-            int lineCount = 2 * (targetChar - 'A') + 1;
-            int middleIndex = lineCount / 2;
-            int charPosition1 = 0;
-            int charPosition2 = 0;
-            int asciiA = Convert.ToInt32('A');
-            char currentChar = ' ';
-
+            var stringBuilder = new StringBuilder();
+            int lineCount = 2 * (targetChar - CHAR_A) + 1;
             for (int index = 0; index < lineCount; index++)
             {
-                charPosition1 = Math.Abs(middleIndex - index);
-                charPosition2 = (lineCount - 1) - charPosition1;
-                currentChar = Convert.ToChar(asciiA + middleIndex - charPosition1);
-                StringBuilder diamondLineStringBuilder = new StringBuilder();
-                diamondLineStringBuilder.Append(' ', lineCount);
-                diamondLineStringBuilder.Replace(' ', currentChar, charPosition1, 1);
-                diamondLineStringBuilder.Replace(' ', currentChar, charPosition2, 1);
-                diamondLineStringBuilder.Append("\n");
-                diamondStringBuilder.Append(diamondLineStringBuilder.ToString());
+                stringBuilder.Append(PrintDiamondLine(index, lineCount));
             }
-            return diamondStringBuilder.ToString();
+            return stringBuilder.ToString();
+        }
+
+        private string PrintDiamondLine(int index, int lineCount)
+        {
+            var middleIndex = lineCount / 2;
+            var charPosition1 = Math.Abs(middleIndex - index);
+            var charPosition2 = (lineCount - 1) - charPosition1;
+            var currentChar = Convert.ToChar(CHAR_A_ASCII_CODE + middleIndex - charPosition1);
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(' ', lineCount);
+            stringBuilder.Replace(' ', currentChar, charPosition1, 1);
+            stringBuilder.Replace(' ', currentChar, charPosition2, 1);
+            stringBuilder.Append("\n");
+            return stringBuilder.ToString();
         }
     }
 }
