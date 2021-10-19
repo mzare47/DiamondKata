@@ -8,9 +8,17 @@ namespace DiamondKata.ClassLibrary
 {
     public class Diamond
     {
+        private StringBuilder stringBuilder;
+        Diamond()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+        }
         public string Print(char ch)
         {
-            throw new NotImplementedException();
+            stringBuilder.Append(Convert.ToString(ch));
+            stringBuilder.Append("\n");
+
+            return stringBuilder.ToString();
         }
     }
 }
