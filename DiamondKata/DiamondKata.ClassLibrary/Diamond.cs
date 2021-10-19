@@ -11,7 +11,7 @@ namespace DiamondKata.ClassLibrary
         private const char CHAR_A = 'A';
         private const char CHAR_Z = 'Z';
         private const int CHAR_A_ASCII_CODE = 65;
-        public string Print(char ch)
+        public string Create(char ch)
         {
             char targetChar = ch;
             if (targetChar < CHAR_A || targetChar > CHAR_Z)
@@ -22,12 +22,12 @@ namespace DiamondKata.ClassLibrary
             int lineCount = 2 * (targetChar - CHAR_A) + 1;
             for (int index = 0; index < lineCount; index++)
             {
-                stringBuilder.Append(PrintDiamondLine(index, lineCount));
+                stringBuilder.Append(CreateDiamondLine(index, lineCount));
             }
             return stringBuilder.ToString();
         }
 
-        private string PrintDiamondLine(int index, int lineCount)
+        private string CreateDiamondLine(int index, int lineCount)
         {
             var middleIndex = lineCount / 2;
             var charPosition1 = Math.Abs(middleIndex - index);

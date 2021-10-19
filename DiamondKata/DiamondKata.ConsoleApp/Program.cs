@@ -19,7 +19,7 @@ namespace DiamondKata.ConsoleApp
                 {
                     var input = firstNotNullStringInput.First();
                     Diamond diamond = new Diamond();
-                    Console.WriteLine(diamond.Print(input));
+                    Console.WriteLine(diamond.Create(input));
                 }
             }
             else

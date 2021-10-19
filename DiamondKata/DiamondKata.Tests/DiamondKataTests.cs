@@ -21,7 +21,7 @@ namespace DiamondKata.Tests
         {
             stringBuilder.Append("A\n");
 
-            Assert.AreEqual(diamond.Print('A'), stringBuilder.ToString());
+            Assert.AreEqual(diamond.Create('A'), stringBuilder.ToString());
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace DiamondKata.Tests
             stringBuilder.Append("B B\n");
             stringBuilder.Append(" A \n");
 
-            Assert.AreEqual(diamond.Print('B'), stringBuilder.ToString());
+            Assert.AreEqual(diamond.Create('B'), stringBuilder.ToString());
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace DiamondKata.Tests
             stringBuilder.Append(" B B \n");
             stringBuilder.Append("  A  \n");
 
-            Assert.AreEqual(diamond.Print('C'), stringBuilder.ToString());
+            Assert.AreEqual(diamond.Create('C'), stringBuilder.ToString());
         }
 
         [Test]
@@ -61,15 +61,15 @@ namespace DiamondKata.Tests
             stringBuilder.Append("    B B    \n");
             stringBuilder.Append("     A     \n");
 
-            Assert.AreEqual(diamond.Print('F'), stringBuilder.ToString());
+            Assert.AreEqual(diamond.Create('F'), stringBuilder.ToString());
         }
 
         [Test]
         public void GivenCharacterNotInAtoZSet_ShouldReturnNull()
         {
-            Assert.IsNull(diamond.Print('a'));
-            Assert.IsNull(diamond.Print('1'));
-            Assert.IsNull(diamond.Print(' '));
+            Assert.IsNull(diamond.Create('a'));
+            Assert.IsNull(diamond.Create('1'));
+            Assert.IsNull(diamond.Create(' '));
         }
     }
 }
