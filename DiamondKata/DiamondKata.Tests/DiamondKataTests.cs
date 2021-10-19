@@ -63,5 +63,13 @@ namespace DiamondKata.Tests
 
             Assert.AreEqual(diamond.Print('F'), stringBuilder.ToString());
         }
+
+        [Test]
+        public void GivenCharacterNotInAtoZSet_ShouldReturnNull()
+        {
+            Assert.IsNull(diamond.Print('a'));
+            Assert.IsNull(diamond.Print('1'));
+            Assert.IsNull(diamond.Print(' '));
+        }
     }
 }
