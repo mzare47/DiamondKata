@@ -33,5 +33,17 @@ namespace DiamondKata.Tests
 
             Assert.AreEqual(diamond.Print('B'), stringBuilder.ToString());
         }
+
+        [Test]
+        public void GivenCharacterC_ShouldCreateDiamondWithCharactersAtoC()
+        {
+            stringBuilder.Append("  A  \n");
+            stringBuilder.Append(" B B \n");
+            stringBuilder.Append("C   C\n");
+            stringBuilder.Append(" B B \n");
+            stringBuilder.Append("  A  \n");
+
+            Assert.AreEqual(diamond.Print('C'), stringBuilder.ToString());
+        }
     }
 }
